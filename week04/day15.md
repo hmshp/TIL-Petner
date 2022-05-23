@@ -48,3 +48,36 @@ js 파일도 다운 받은 다음 위와 같이 코드를 작성하면 잘 인�
   </body>
 ```
 
+## content_for과 yield
+
+### yield
+레이아웃 안에서 콘텐츠를 <em>어느 위치</em>에 둘 건지 결정할 때 사용
+
+```html.erb
+<div>
+  <h1> This is the wrapper!</h1>
+  <%= yield :my_content %>
+</div>
+```
+
+### content_for
+<em>어느 콘텐츠</em>가 렌더링되도록 할지 결정할 때 사용
+
+```html.erb
+<% content_for :my_content do %>
+  This is the content.
+<% end %>
+```
+
+content_for, yield를 사용해서 위와 같은 코드를 적으면 다음과 같은 결과가 나온다.
+
+```html.erb
+<div>
+  <h1> This is the wrapper!</h1>
+  This is the content.
+</div>
+```
+참고한 자료: https://stackoverflow.com/questions/13150983/rails-what-is-the-difference-between-content-for-and-yield
+(베스트 프렉티스도 제시되어 있다)
+
+
